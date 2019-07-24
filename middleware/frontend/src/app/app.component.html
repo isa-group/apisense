@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>FinalUse</title>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 text-center" style="margin-top: 20px;">
+                    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                        <div class="container"><a class="navbar-brand" href="#"><img width="110" src="assets/images/logoApisense.png"></a><button
+                                class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span
+                                    class="sr-only">Toggle navigation</span><span
+                                    class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse" id="navcol-1">
+
+                                <form class="form-inline text-left ml-auto" target="_self" style="margin-right: 20px;">
+                                    <div class="form-group">
+                                        <label for="search-field"
+                                            style="margin-left: 20px;margin-right: 10px; color: black">Identifier:</label>
+                                        <input [(ngModel)]="search.anyId"
+                                            class="border rounded border-primary form-control search-field"
+                                            type="search" name="searchid" id="searchid-field">
+                                        <label for="search-field"
+                                            style="margin-left: 20px;margin-right: 10px; color: black">Search in
+                                            data:</label>
+                                        <input [(ngModel)]="search.data"
+                                            class="border rounded border-primary form-control search-field"
+                                            type="search" name="search" id="search-field">
+                                    </div>
+                                </form><a class="btn btn-light action-button" role="button"
+                                    (click)="updateSearch()">Search</a>
+                            </div>
+                        </div>
+                    </nav>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" id="accordion">
+                    <div *ngFor="let data of currentSearchResult; index as i; "
+                        class="card bg-light" style="margin-bottom: 15px;" (click)="getAllInfoFor(data.sid)">
+
+                        <div class="card-header" attr.id="heading{{i+1}}" data-toggle="collapse"
+                            attr.data-target="#maincollapse{{i+1}}">
+                            <h6 class="text-muted card-subtitle mb-2"><span
+                                    class="badge badge-secondary">{{data.data.method}}</span> {{data.data.timestamp | date: 'dd/MM/yyyy HH:MM:ss.SSS'}} | {{data.url}} 
+                                  
+                                <div style="float:right">
+                                    <span class="badge badge-secondary">SID:
+                                        ..{{data.sid.substr(data.sid.length - 6)}}</span>&nbsp;
+                                    <span class="badge badge-primary">TID:
+                                        ..{{data.tid.substr(data.tid.length - 6)}}</span>&nbsp;
+                                    <span class="badge badge-warning">EID:
+                                        ..{{data.eid.substr(data.eid.length - 6)}}</span>&nbsp;
+
+                                </div>
+                            </h6>
+                        </div>
+                        <div attr.id="maincollapse{{i+1}}" class="collapse multi-collapse"
+                            attr.aria-labelledby="heading{{i+1}}">
+                            <div class="card-body">
+
+                                <app-data-list [datasOfRequest]="searchInObjectData(localStoredData,{eid: data.eid}).reverse()"
+                                    [indexMain]="i"></app-data-list>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<router-outlet></router-outlet>
+
+</html>

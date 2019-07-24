@@ -1,0 +1,15 @@
+<div class="list-group-item list-group-item-action list-group-item-warning">
+  <div class="row" attr.id="headingReq{{i2+1}}" data-toggle="collapse"
+    attr.data-target="#collapseReq{{i2+1}}{{indexMain}}">
+    <div class="data-dateTime"> {{dataObject.timestamp | date: 'dd/MM/yyyy HH:MM:ss.SSS'}} </div> New Request
+  </div>
+
+  <div attr.id="collapseReq{{i2+1}}{{indexMain}}" class="card inside-data collapse multi-collapse"
+    attr.aria-labelledby="headingReq{{i2+1}}">
+    <div class="card-body">
+
+      <app-data-list [indexMain]="i2()" [datasOfRequest]="sample()"></app-data-list>
+    </div>
+  </div>
+
+</div>

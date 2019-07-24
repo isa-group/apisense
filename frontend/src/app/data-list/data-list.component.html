@@ -1,0 +1,9 @@
+<div class="list-group">
+  <div *ngFor="let dataObject of datasOfRequest; index as i2; ">
+    <app-console-log-data *ngIf="dataObject.dataType == 'consoleLog'" [dataObject]="dataObject"
+      [fullUIDIndex]="i2.toString()+indexMain.toString()"> </app-console-log-data>
+    <app-http-data *ngIf="dataObject.dataType == 'Response-Sent' || dataObject.dataType == 'Request-Received'"
+      [dataObject]="dataObject" [fullUIDIndex]="i2.toString()+indexMain.toString()"></app-http-data>
+ 
+  </div>
+</div>

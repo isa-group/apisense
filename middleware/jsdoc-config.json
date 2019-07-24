@@ -1,0 +1,13 @@
+{
+    "source": {
+        "include": ["index.js", "main/registry.js", "main/sensor.js", "data-server/controllers/Default.js", "data-server/service/DefaultService.js", "config/index.js"],
+        "exclude": ["myProject/lib/ignore.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "templates": {
+        "default": {
+            "includeDate": false
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<div class="list-group-item list-group-item-action list-group-item-success" >
+
+  <div class="row" attr.id="headingReq{{fullUIDIndex}}"
+  data-toggle="collapse" attr.data-target="#collapseReq{{fullUIDIndex}}">
+    <div class="data-dateTime"> {{dataObject.timestamp | date: 'dd/MM/yyyy HH:MM:ss.SSS'}} </div>
+    
+    {{dataObject.dataType}}
+  </div>
+
+
+  <div attr.id="collapseReq{{fullUIDIndex}}" class="card inside-data collapse multi-collapse"
+    attr.aria-labelledby="headingReq{{fullUIDIndex}}">
+    <div class="card-body">
+ <h5 *ngIf="dataObject.data.status"> Response Status: {{dataObject.data.status}}</h5>
+ <br>
+  <h4>Headers</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Header</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let header of Object.keys(dataObject.data.headers)">
+            <td>{{header}}</td>
+            <td>{{dataObject.data.headers[header].substr(0, 80)}}</td>
+          </tr>
+        </tbody>
+      </table>
+<br>
+  <h4>Body</h4>
+       <div attr.id="jsonView{{fullUIDIndex}}"></div>
+      <div *ngIf= "getJSONData(dataObject.data.body, fullUIDIndex); let bodyObj">
+     
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "apisense",
+  "version": "1.1.2",
+  "description": "The Express middleware for microservice tracing",
+  "keywords": [
+    "api",
+    "microservices",
+    "architecture",
+    "middleware",
+    "tracing",
+    "debug"
+  ],
+  "dependencies": {
+    "chai": "^4.2.0",
+    "express": "^4.16.3",
+    "js-yaml": "^3.3.0",
+    "mocha": "^6.1.4",
+    "nedb": "^1.8.0",
+    "uuid": "^3.3.2"
+  },
+  "author": "Alejandro Guerrero Díaz <alexgue404@gmail.com> (https://alexgd.es)",
+  "license": "BSD 3-Clause",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec --exit --timeout 8000"
+  }
+}

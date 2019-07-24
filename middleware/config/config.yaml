@@ -1,0 +1,8 @@
+logFile: "./log/data.json"
+traceSignature: "APIXUID$"
+headerUID: "APIX_GLOBAL_UID"
+appName: "APIX"
+storeInFile: false
+storeInServer: true
+storeEvery: 5000
+server: "http://localhost:9002"
